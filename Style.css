@@ -1,26 +1,40 @@
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
 overflow:hidden;
 height:100vh;
-background:radial-gradient(circle,#350012,#120006);
+background:radial-gradient(circle at center,#430016,#120006,#050002);
 font-family:Georgia,serif;
 }
 
 .overlay{
 position:absolute;
-top:30px;
+top:35px;
 width:100%;
 text-align:center;
-color:#e8d6dc;
-letter-spacing:3px;
+color:#f8d7e4;
+z-index:100;
+}
+
+.overlay h1{
+font-size:28px;
+margin-bottom:8px;
+text-shadow:0 0 15px #ff7ca8;
+}
+
+.overlay p{
+font-size:15px;
 opacity:.8;
-z-index:10;
 }
 
 #garden{
 position:fixed;
 inset:0;
+overflow:hidden;
 }
 
 .spark{
@@ -30,50 +44,67 @@ height:3px;
 background:white;
 border-radius:50%;
 opacity:.5;
-animation:float 6s linear infinite;
+animation:float linear infinite;
 }
 
 @keyframes float{
-from{transform:translateY(20px);}
-to{transform:translateY(-120vh);}
+from{
+transform:translateY(0);
+opacity:0;
+}
+30%{
+opacity:.8;
+}
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
 }
 
 .stem{
 position:absolute;
 width:5px;
-background:#39d353;
+background:linear-gradient(#2fa94d,#56d36d);
 transform-origin:bottom;
 animation:grow .8s ease forwards;
+border-radius:5px;
 }
 
 @keyframes grow{
-from{height:0;}
-to{height:170px;}
+from{
+height:0;
+}
+to{
+height:170px;
+}
 }
 
 .leaf{
 position:absolute;
-width:30px;
+width:28px;
 height:16px;
-background:#3dbb4d;
+background:#39b54a;
 border-radius:100% 0;
 opacity:0;
-animation:appear .5s ease forwards;
+animation:leafShow .5s ease forwards;
 }
 
-@keyframes appear{
-to{opacity:1;}
+@keyframes leafShow{
+to{
+opacity:1;
+}
 }
 
 .photo{
 position:absolute;
-width:85px;
-height:85px;
+width:90px;
+height:90px;
 border-radius:50%;
 overflow:hidden;
-box-shadow:0 0 25px #ff8fb1;
+box-shadow:0 0 30px #ff82b3;
 transform:scale(.2);
 animation:bloom .8s ease forwards;
+border:3px solid rgba(255,255,255,.7);
 }
 
 .photo img{
@@ -83,16 +114,24 @@ object-fit:cover;
 }
 
 @keyframes bloom{
-0%{transform:scale(.2);opacity:0;}
-70%{transform:scale(1.1);}
-100%{transform:scale(1);opacity:1;}
+0%{
+transform:scale(.2);
+opacity:0;
+}
+60%{
+transform:scale(1.15);
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
 }
 
 .petal{
 position:absolute;
 width:12px;
 height:6px;
-background:#ff89b5;
+background:#ff8ab8;
 border-radius:50%;
 animation:swirl 1s ease-out forwards;
 }
